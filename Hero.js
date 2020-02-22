@@ -5,13 +5,14 @@ class Hero{
         this.maxHealth = 100;
         this.defence = 10;
         this.attack = 10;
-        this.inventory = ["spear","test"];
+        this.inventory = [rock];
         this.X = 0;
         this.Y = 0;
+        this.played = false;
     }
 
     viewStats(){
-        console.log(this.name + "'s stats are:\n" + "Health: " + this.health + "\nMax health: " +
+        addToDialogueBox(this.name + "'s stats are:\n" + "Health: " + this.health + "\nMax health: " +
             this.maxHealth + "\ndefence: " + this.defence + "\nAttack: " + this.attack);
     }
 
@@ -25,10 +26,11 @@ class Hero{
                 out += this.inventory[i] + "\n";
             }
         }
-        console.log(out);
+        addToDialogueBox(out);
     }
 
-    heal(item){
+    heal(){
+        var item = document.getElementById("inputBox").value;
         var itemPossition = this.checkInventory(item);
         if (itemPossition != false){
             self.health += this.inventory[itemPossition].healling;
@@ -36,39 +38,42 @@ class Hero{
                 self.health = this.maxHealth;
             }
             this.inventory.splice(itemLocation, 1)
+            this.played = true;
         }
         else{
-            console.log("This item doesnt exist in your inventory");
+            addToDialogueBox("This item doesnt exist in your inventory");
         }
 
 
     }
 
-    drop(item){
+    drop(){
+        addToDialogueBox("Enter the name of the item you want to drop");
+        var item = document.getElementById("inputBox").value.toLowerCase();
+
         var itemLocation = this.checkInventory(item);
         if (itemLocation){
-            this.inventory.splice(itemLocation, 1)
+            this.inventory.splice(itemLocation, 1);
+            addToDialogueBox("You have doped the " + item);
+            player.played = true;
         }
         else{
-            console.log("The item isent there")
+            addToDialogueBox(item + " isent isent in your inventory");
         }
 
     }
-    
+
     checkInventory(item){
         for (var i in this.inventory){
             if (this.inventory[i] == item){
                 return i;
             }
         }
-
-        
         return false
-    
     }
 
-    move(map){
-        console.log("please input the direction");
+    move(){
+        addToDialogueBox("please input the direction");
         var direction;
         do{
             direction = readline().toLowerCase();
@@ -76,36 +81,36 @@ class Hero{
 
         switch(direction){
             case "right":
-                if(map[this.Y][this.X + 1] != "Wall"){
+                if(map[this.Y][this.X + 1].name != "Wall"){
                     this.X += 1;
-                }
+                }                                                                                                   
                 else{
-                    console.log("there is a wall to your right")
+                    addToDialogueBox("there is a wall to your right")
                 }
                 break;
 
             case "left":
-                if(map[this.Y][this.X +- 1] != "Wall"){
+                if(map[this.Y][this.X +- 1].name != "Wall"){
                     this.X -= 1;
                 }
                 else{
-                    console.log("there is a wall to your left")
+                    addToDialogueBox("there is a wall to your left")
                 }
                 break; 
                 case "forwards":
-                    if(map[this.Y + 1][this.X] != "Wall"){
+                    if(map[this.Y + 1][this.X].name != "Wall"){
                         this.Y += 1;
                     }
                     else{
-                        console.log("there is a wall infront")
+                        addToDialogueBox("there is a wall infront")
                     }
                     break; 
                 case "left":
-                    if(map[this.Y - 1][this.X] != "Wall"){
+                    if(map[this.Y - 1][this.X].name != "Wall"){
                         this.Y -= 1;
                     }
                     else{
-                        console.log("there is a wall behind you")
+                        addToDialogueBox("there is a wall behind you")
                     }
                     break; 
         }
@@ -116,11 +121,3 @@ class Hero{
 
 
 Kaveh = new Hero("kaveh");
-
-Kaveh.viewInventory();
-
-Kaveh.drop("spear");
-
-Kaveh.viewInventory();
-
-Kaveh.drop("hfbwk");
