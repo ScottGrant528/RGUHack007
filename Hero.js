@@ -5,7 +5,7 @@ class Hero{
         this.maxHealth = 100;
         this.defence = 10;
         this.attack = 10;
-        this.inventory = [];
+        this.inventory = ["spear","test"];
     }
 
     viewStats(){
@@ -26,13 +26,14 @@ class Hero{
         console.log(out);
     }
 
-    heal(var item){
-        var itemPossition = checkInventory(item);
+    heal(item){
+        var itemPossition = this.checkInventory(item);
         if (itemPossition != false){
             self.health += this.inventory[itemPossition].healling;
-            if (self.health > self.maxHealth){
-                self.health = self.maxHealth;
+            if (self.health > this.maxHealth){
+                self.health = this.maxHealth;
             }
+            this.inventory.splice(itemLocation, 1)
         }
         else{
             console.log("This item doesnt exist in your inventory");
@@ -41,6 +42,16 @@ class Hero{
 
     }
 
+    drop(item){
+        var itemLocation = this.checkInventory(item);
+        if (itemLocation){
+            this.inventory.splice(itemLocation, 1)
+        }
+        else{
+            console.log("The item isent there")
+        }
+
+    }
     checkInventory(item){
         for (var i in this.inventory){
             if (this.inventory[i] == item){
@@ -51,18 +62,17 @@ class Hero{
         
         return false
     
-}
+    }
+
 }
 
 
 Kaveh = new Hero("kaveh");
 
-Rob = new Hero("Rob");
+Kaveh.viewInventory();
 
-Rob.viewStats();
-
-Rob.health -= Kaveh.attack;
-
-Rob.viewStats();
+Kaveh.drop("spear");
 
 Kaveh.viewInventory();
+
+Kaveh.drop("hfbwk");
