@@ -6,6 +6,8 @@ class Hero{
         this.defence = 10;
         this.attack = 10;
         this.inventory = ["spear","test"];
+        this.X = 0;
+        this.Y = 0;
     }
 
     viewStats(){
@@ -52,6 +54,7 @@ class Hero{
         }
 
     }
+    
     checkInventory(item){
         for (var i in this.inventory){
             if (this.inventory[i] == item){
@@ -62,6 +65,51 @@ class Hero{
         
         return false
     
+    }
+
+    move(map){
+        console.log("please input the direction");
+        var direction;
+        do{
+            direction = readline().toLowerCase();
+        }while (direction != "right" && direction != "left" && direction != "forwards" && direction != "back")
+
+        switch(direction){
+            case "right":
+                if(map[this.Y][this.X + 1] != "Wall"){
+                    this.X += 1;
+                }
+                else{
+                    console.log("there is a wall to your right")
+                }
+                break;
+
+            case "left":
+                if(map[this.Y][this.X +- 1] != "Wall"){
+                    this.X -= 1;
+                }
+                else{
+                    console.log("there is a wall to your left")
+                }
+                break; 
+                case "forwards":
+                    if(map[this.Y + 1][this.X] != "Wall"){
+                        this.Y += 1;
+                    }
+                    else{
+                        console.log("there is a wall infront")
+                    }
+                    break; 
+                case "left":
+                    if(map[this.Y - 1][this.X] != "Wall"){
+                        this.Y -= 1;
+                    }
+                    else{
+                        console.log("there is a wall behind you")
+                    }
+                    break; 
+        }
+
     }
 
 }
