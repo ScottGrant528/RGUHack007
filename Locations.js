@@ -3,6 +3,7 @@ export class Location{
         this.name = name;
         this.items = items;
         this.badGuy = badGuy;
+        this.discription = discription;
     }
 }
 
@@ -16,5 +17,4 @@ var chapel = new Locations("The Chapel",[smallChest],"A big room with wooden pew
 var kitchen = new Locations("Kitchen",[bread,applepie],"medium sized room with a low ceiling,oak counter tops with vegetables packed ontop");
 var greatHall = new Locations("The Great Hall",[heavySoldier,heavySoldier,veteranSoldier],[],"A huge space with a U-shaped wooden table by a great fire");
 var armory = new Locations("Armory Room",[guard,guard],[],"A large room with many weapon racks, and also weapons mounted on the walls ");
-console.log(cell)
 
