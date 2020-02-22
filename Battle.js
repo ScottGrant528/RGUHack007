@@ -21,7 +21,7 @@ function battle(Hero, AI, turn){
             while(!Hero.played){
                 var action;
                 do{
-                    alert("in")//add get action
+                    addToDialogueBox("in")//add get action
                 }while(action != attack)//add list of actions
                 
                 action = heal;//delete later
@@ -42,7 +42,7 @@ function battle(Hero, AI, turn){
                             flee = true;
                         }
                         else{
-                            alert("you failed")
+                            addToDialogueBox("you failed")
                         }
                         Hero.played = true;
                         break;
@@ -51,10 +51,10 @@ function battle(Hero, AI, turn){
                             var damage = Hero.attack - AI.defence;
                             if (damage < 0)damage = 0;
                             AI.health -= damage;
-                            alert("You did " + damage + " damage");
+                            addToDialogueBox("You did " + damage + " damage");
                         }
                         else{
-                            alert("your attack was blocked");
+                            addToDialogueBox("your attack was blocked");
                         }
                         Hero.played = true;
                         break;
@@ -69,10 +69,10 @@ function battle(Hero, AI, turn){
                 var damage = AI.attack - Hero.defence;
                 if (damage < 0)damage = 0;
                 AI.health -= damage;
-                alert("the " + AI.name + " did " + damage + " damage");
+                addToDialogueBox("the " + AI.name + " did " + damage + " damage");
             }
             else{
-                alert("you blocked the attack");
+                addToDialogueBox("you blocked the attack");
             }
             turn = "Hero"
         }
