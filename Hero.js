@@ -26,10 +26,20 @@ class Hero{
         console.log(out);
     }
 
-    //heal(var item){
-    //    var has = false;
+    heal(var item){
+        var itemPossition = checkInventory(item);
+        if (itemPossition != false){
+            self.health += this.inventory[itemPossition].healling;
+            if (self.health > self.maxHealth){
+                self.health = self.maxHealth;
+            }
+        }
+        else{
+            console.log("This item doesnt exist in your inventory");
+        }
 
-    //}
+
+    }
 
     checkInventory(item){
         for (var i in this.inventory){
@@ -38,6 +48,7 @@ class Hero{
             }
         }
 
+        
         return false
     
 }
