@@ -59,6 +59,17 @@ class  sheild extends item{
       }
 }
 
+class  key extends item{
+
+    constructor(itemName) {
+        super(itemName);
+       
+      }
+}
+
+//key input
+
+keyMainDoor = new key("Front door key");
 
 //weapon input
 
