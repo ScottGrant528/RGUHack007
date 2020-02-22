@@ -99,7 +99,7 @@ biscuit = new food("biscuit",8);
 
 barrel = new box("barrel",3,[steelHelmet,shortsword,rock]);
 chest1 = new box ("chest",5,[bread,chicken,applepie,biscuit,steelHelmet]);
-
+chestHallway = new box("chestHallway",4,[shortsword,leatherChestplate,leatherGloves,leatherHelmet]);
 
 
 
