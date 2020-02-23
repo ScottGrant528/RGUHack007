@@ -78,6 +78,7 @@ rock = new weapon("rock",2);
 pike = new weapon("pike",25);
 spear = new weapon("spear",17);
 sword = new weapon("sword",20);
+knife = new weapon("knife",5);
 
 
 //armor
@@ -109,8 +110,9 @@ biscuit = new food("biscuit",8);
 //box inouts
 
 barrel = new box("barrel",3,[steelHelmet,shortsword,rock]);
-chest1 = new box ("chest",5,[bread,chicken,applepie,biscuit,steelHelmet]);
+basket = new box ("basket",5,[bread,chicken,applepie,biscuit]);
 chestHallway = new box("chestHallway",4,[shortsword,leatherChestplate,leatherGloves,leatherHelmet]);
+weaponRack = new box("weaponRack",2,[sword,steelSheild]);
 
 
 
