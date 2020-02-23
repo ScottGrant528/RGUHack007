@@ -61,15 +61,17 @@ class  sheild extends item{
 
 class  key extends item{
 
-    constructor(itemName) {
+    constructor(itemName,description) {
         super(itemName);
-       
+        this.description = description;
       }
 }
 
 //key input
 
-keyMainDoor = new key("Front door key");
+keyMainDoor = new key("Front door key","The key to exit the castle and win the game");
+keyHallway1 = new key("Hallyway key one","This key lets you escape hallyway one outside thes guards room");
+
 
 //weapon input
 
