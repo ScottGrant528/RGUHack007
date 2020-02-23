@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script src="textBasedGameJS.js"></script>
+        <script src="Battle.js"></script>
+        <script src="Items.js"></script>
+        <script src="Villian.js"></script>
+        <script src="Locations.js"></script>
+        <script src="Setup.js"></script>
+        <script src="Hero.js"></script>
+
+        <script src="Main.js"></script>
+        <title>Text based adventure game</title>
+        <link rel="stylesheet" href="textBasedGameCSS.css">
+        
+    </head>
+
+    <body id="bodyItems" onLoad="main()">
+        <h1>Adventure game</h1>
+
+        <img id="img" src="images/knightfall.jpg" alt="knight in shining armour" height="396" width="704">
+        <br>
+        <div id="dialogBox"></div>
+        <br>
+    </body>
+    <form>
+        <input type="text" id="inputBox" name="commandPrompt" size="100" >
+        <input type="button" onclick="buttonPressed()" value="Enter">
+    </form>
+
+</html>
