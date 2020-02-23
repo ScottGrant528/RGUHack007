@@ -26,6 +26,8 @@ theKing = new theKing("The evil King",125, 125, 15, 15, 15,keyMainDoor);
 
 
 
+
+
 //Evil king villian created
 var evilKing = new badGuy(150, 150, 20, 20, 15);
 
@@ -46,3 +48,6 @@ var lightSolider = new badGuy(80, 80, 12, 12 , 20);
 
 //Guard
 var guard = new badGuy(50, 50, 5, 5 , 15);
+
+
+var enemies = [theKing,guard,lightSoldier]
