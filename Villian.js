@@ -9,6 +9,23 @@ class badGuy {
         
     }
 }
+
+class theKing extends badGuy{
+    
+    constructor(mobName,health, maxHealth, defence, attack, agility,item) {
+        super([health, maxHealth, defence, attack, agility]);
+        this.mobName = mobName;
+        this.item = item;
+        
+    }
+}
+
+theKing = new theKing("The evil King",125, 125, 15, 15, 15,keyMainDoor);
+
+
+
+
+
 //Evil king villian created
 var evilKing = new badGuy(150, 150, 20, 20, 15);
 
