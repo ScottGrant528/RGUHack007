@@ -1,4 +1,2 @@
 # RGUHack007
-This is our super amazing adventure game. I hope you enjoy.
-
-https://itnext.io/how-to-create-interactive-terminal-like-website-888bb0972288 
+This is our medeival based adventure game based on defeating an evil king to escape the castle
